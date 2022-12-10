@@ -13,6 +13,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import racingcar.domain.racing.RacingRoundState;
+import racingcar.helper.common.DefaultGeneratorField;
 import racingcar.helper.stub.StubCarNumberGenerator;
 import racingcar.utils.MovingCarNumberGenerator;
 
@@ -119,11 +120,6 @@ class CarsTest {
                         .contains("c");
             }
         }
-    }
-
-    private static class DefaultGeneratorField {
-
-        protected MovingCarNumberGenerator generator = new StubCarNumberGenerator(Arrays.asList(0, 5));
     }
 
     private static class DefaultCarsField extends DefaultGeneratorField {
