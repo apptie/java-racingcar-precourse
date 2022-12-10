@@ -24,7 +24,7 @@ public class RacingGame {
 
     public PrintRacingResultDto racing() {
         List<RacingRoundState> racingRoundStates = processRacingRound();
-        List<String> winningCarsName = racingCars.winningCars();
+        List<String> winningCarsName = racingCars.getWinningCars();
 
         return new PrintRacingResultDto(racingRoundStates, winningCarsName);
     }
@@ -41,6 +41,6 @@ public class RacingGame {
     }
 
     public List<String> getWinningCarsName() {
-        return racingCars.winningCars();
+        return racingCars.getWinningCars();
     }
 }

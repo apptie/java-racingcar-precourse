@@ -4,7 +4,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatCode;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-import java.util.Arrays;
 import java.util.List;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
@@ -14,8 +13,6 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import racingcar.domain.racing.RacingRoundState;
 import racingcar.helper.common.DefaultGeneratorField;
-import racingcar.helper.stub.StubCarNumberGenerator;
-import racingcar.utils.MovingCarNumberGenerator;
 
 class CarsTest {
 
@@ -102,8 +99,8 @@ class CarsTest {
     }
 
     @Nested
-    @DisplayName("winningCars 메소드는")
-    class DescribeWinningCarsMehtodTest extends DefaultCarsField {
+    @DisplayName("getWinningCars 메소드는")
+    class DescribeGetWinningCarsMethodTest extends DefaultCarsField {
 
         @Nested
         @DisplayName("만약 호출하면")
@@ -112,7 +109,7 @@ class CarsTest {
             @Test
             @DisplayName("레이싱에서 승리한 자동차 이름을 반환한다")
             void it_returns_winningCarsName() {
-                List<String> actual = cars.winningCars();
+                List<String> actual = cars.getWinningCars();
 
                 assertThat(actual)
                         .contains("a")

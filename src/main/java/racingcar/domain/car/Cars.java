@@ -40,7 +40,7 @@ public class Cars {
         return new RacingRoundState(racingCars.stream().map(Car::toString).collect(Collectors.toList()));
     }
 
-    public List<String> winningCars() {
+    public List<String> getWinningCars() {
         Car farthestCar = findFarthestPositionCar();
 
         return racingCars.stream()
