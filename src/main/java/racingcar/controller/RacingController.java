@@ -16,9 +16,9 @@ public class RacingController {
     private static final int MOVE_MIN_VALUE = 0;
     private static final int MOVE_MAX_VALUE = 9;
 
+    private final Map<GameStatus, Supplier<GameStatus>> gameStatusMappings = new EnumMap<>(GameStatus.class);
     private final IOViewResolver ioViewResolver;
     private RacingGame racingGame;
-    private Map<GameStatus, Supplier<GameStatus>> gameStatusMappings = new EnumMap<>(GameStatus.class);
 
     public RacingController(IOViewResolver ioViewResolver) {
         this.ioViewResolver = ioViewResolver;
