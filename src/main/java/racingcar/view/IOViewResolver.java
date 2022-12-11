@@ -29,7 +29,7 @@ public class IOViewResolver {
             outputView.printRacingResult((PrintRacingResultDto) dto));
     }
 
-    public <T> T inputViewResolve(final Class<T> type) {
+    public <T> T resolveInputView(final Class<T> type) {
         try {
             return type.cast(inputViewMappings.get(type).get());
         } catch (NullPointerException e) {
@@ -37,7 +37,7 @@ public class IOViewResolver {
         }
     }
 
-    public void outputViewResolve(final Object dto) {
+    public void resolveOutputView(final Object dto) {
         try {
             outputViewMappings.get(dto.getClass()).accept(dto);
         } catch (NullPointerException e) {
