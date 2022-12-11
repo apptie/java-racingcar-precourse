@@ -4,6 +4,9 @@ import racingcar.dto.output.PrintRacingResultDto;
 
 public final class OutputView {
 
+    private static final String LINE_FEED = "";
+    private static final String CARS_NAME_SEPARATOR = ",";
+
     private OutputView() {
     }
 
@@ -17,8 +20,12 @@ public final class OutputView {
 
     public void printRacingResult(PrintRacingResultDto dto) {
         print(OutputViewMessage.GUIDE_RACING_RESULT.findFullMessage());
-        dto.getRacingRoundStates().forEach(racingRoundState -> print(racingRoundState.toString()));
-        print(OutputViewMessage.WINNING_CARS_NAME_FORMAT.findFullMessage(dto.getWinningCarsName()));
+        dto.getRacingRoundStates().forEach(racingRoundState -> {
+            print(racingRoundState.toString());
+            print(LINE_FEED);
+        });
+        print(OutputViewMessage.WINNING_CARS_NAME_FORMAT.findFullMessage(
+                String.join(CARS_NAME_SEPARATOR, dto.getWinningCarsName())));
     }
 
     private void print(String message) {
